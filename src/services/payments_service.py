@@ -12,11 +12,19 @@ from src.repositories import PaymentRepository
 class PaymentService(ABC):
 
     @staticmethod
-    async def agregate_payments(
+    async def aggregate_payments(
             dt_from: datetime,
             dt_upto: datetime,
             group_type: str,
     ) -> dict[str: list]:
+        """
+        Агрегация данных по платежам с указанным шагом за указанный период.
+        :param dt_from: Начальная дата.
+        :param dt_upto: Конечная дата.
+        :param group_type: Шаг агрегации ("hour", "day", "month").
+        :return: Словарь вида {"dataset": list['суммы платежей за каждый период'],
+                                "labels": list['даты начала периода в формате iso']}
+        """
         match group_type:
             case 'month':
                 dt_from = datetime(dt_from.year, dt_from.month, day=1)
@@ -54,6 +62,11 @@ class PaymentService(ABC):
 
     @staticmethod
     async def restore_database_from_file(file_path: str) -> None:
+        """
+        Перезапись базы данных из файла с данными.
+        :param file_path: Путь до файла с данными.
+        :return: None.
+        """
 
         await PaymentRepository.delete_all()
 

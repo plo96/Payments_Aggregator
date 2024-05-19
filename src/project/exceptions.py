@@ -1,3 +1,7 @@
+"""
+    Кастомные exceptions для данного приложения.
+"""
+
 
 class CustomException(Exception):
     pass

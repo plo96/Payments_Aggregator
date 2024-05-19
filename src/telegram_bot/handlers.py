@@ -50,7 +50,7 @@ async def handle_json(
         dt_upto = datetime.fromisoformat(input_data.__getitem__('dt_upto'))
         group_type = input_data.__getitem__('group_type')
 
-        answer = await PaymentService.agregate_payments(
+        answer = await PaymentService.aggregate_payments(
             dt_from=dt_from,
             dt_upto=dt_upto,
             group_type=group_type,
