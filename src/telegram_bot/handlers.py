@@ -61,18 +61,18 @@ async def handle_json(
             parse_mode="MARKDOWN"
         )
 
-        json_file_name = 'answer.json'
-        try:
-            json_file_name = 'answer.json'
-            with open(json_file_name, 'w') as json_file:
-                json_file.write(json.dumps(answer))
-
-            await bot.send_document(
-                chat_id=message.chat.id,
-                document=FSInputFile(json_file_name),
-                caption='Вот ваш ответ в виде JSON-файла.',
-            )
-
-        finally:
-            if json_file_name in os.listdir():
-                os.remove(json_file_name)
+        # json_file_name = 'answer.json'
+        # try:
+        #     json_file_name = 'answer.json'
+        #     with open(json_file_name, 'w') as json_file:
+        #         json_file.write(json.dumps(answer))
+        #
+        #     await bot.send_document(
+        #         chat_id=message.chat.id,
+        #         document=FSInputFile(json_file_name),
+        #         caption='Вот ваш ответ в виде JSON-файла.',
+        #     )
+        #
+        # finally:
+        #     if json_file_name in os.listdir():
+        #         os.remove(json_file_name)
