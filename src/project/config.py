@@ -29,8 +29,7 @@ class Settings:
 			'Cборка' url для подключения к mongodb после основной инициализации объекта класса.
 		"""
 		self.db_url_mongodb: str = f"mongodb://{self._mongo_user}:{self._mongo_pwd}@{self._mongo_host}:{self._mongo_port}"
-		self.path_to_db_file = f'{self.home_dir}/data/sample_collection.bson'
-		self.path_to_input_file = f'{self.home_dir}/data/sample_input.json'
+		self.path_to_db_file = f'{self.home_dir}/sample_files/sample_collection.bson'
 
 
 settings = Settings(
